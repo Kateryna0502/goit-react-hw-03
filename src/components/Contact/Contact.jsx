@@ -1,11 +1,16 @@
 import React from 'react'
 
-const Contact = (contact) => {
+const Contact = ({
+  id,
+  name,
+  number,
+onDeleteProfile}) => {
   return (
     <div>
-          <p>{contact.name}</p>
-          <p>{contact.number}</p>
-          <button type='button'>Delete</button>
+          <p>{id}</p>
+      <p>{name}</p>
+          <p>{number}</p>
+          <button onClick={() => onDeleteProfile(id)}type='button'>Delete</button>
     </div>
   )
 }

@@ -1,33 +1,48 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import ContactList from './components/ContactList/ContactList.jsx'
+import SearchBox from './components/SearchBox/SearchBox.jsx'
+import ContactForm from './components/ContactForm/ContactForm.jsx'
+import dataFromArray from "./contacts.json"
+import * as Yup from "yup";
+import { nanoid } from 'nanoid'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [users, setUsers] = useState(dataFromArray);
+  const [filterValue, setFilterValue] = useState("");
+  const onAddContact = (contact) => {
+    const finalContact = {
+      ...contact,
+      id: nanoid(),
+    };
+
+    setUsers([finalContact, ...users]);
+  };
+  const onDeleteContact = (contactId) => {
+    
+
+    setUsers(users.filter((item) => item.id !== contactId));
+  };
+
+  const handleFilter = (event) => {
+    const value = event.target.value;
+
+    setFilterValue(value);
+  };
+  const filteredContacts = users.filter((contact) =>
+    contact.name.toLowerCase().includes(filterValue.toLowerCase())
+  );
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+  <h1>Phonebook</h1>
+  <ContactForm onAddContact={onAddContact} />
+  <SearchBox value={filterValue}
+          onChange={handleFilter}/>
+  <ContactList contacts={filteredContacts} onDeleteProfile={onDeleteContact} />
+</div>
     </>
   )
 }
