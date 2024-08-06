@@ -49,7 +49,7 @@ const ContactForm = ({ onAddContact }) => {
       {({ errors }) => (
         <Form className={css.form}>
         <label className={css.label}>
-          <span>Ім&apos;я користувача:</span>
+          <span>Name</span>
           <Field
             type="text"
             name="contactName"
@@ -64,7 +64,7 @@ const ContactForm = ({ onAddContact }) => {
         </label>
 
         <label className={css.label}>
-          <span>Номер телефону:</span>
+          <span>Number</span>
           <Field
             type="tel"
             name="contactNumber"

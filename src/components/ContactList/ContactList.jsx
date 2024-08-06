@@ -8,6 +8,7 @@ const ContactList = ({ contacts }) => {
         name={contact.name}
         number={contact.number}
         
+        
       />
     );
   });
