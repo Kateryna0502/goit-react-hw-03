@@ -8,8 +8,8 @@ const SearchBox = ({ value, handleFilter }) => {
         className={css.input}
         type="text"
         value={value}
-        onChange={(evt) => {
-          handleFilter(evt.target.value);
+        onChange={() => {
+          handleFilter
         }}
       />
     </div>
