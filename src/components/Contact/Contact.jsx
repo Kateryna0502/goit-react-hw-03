@@ -1,4 +1,4 @@
-import React from 'react';
+
 import css from "./Contact.module.css";
 import { FaUserAlt } from "react-icons/fa";
 import { FaPhoneVolume } from "react-icons/fa6";

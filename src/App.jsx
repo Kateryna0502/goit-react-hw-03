@@ -5,7 +5,7 @@ import ContactList from './components/ContactList/ContactList.jsx'
 import SearchBox from './components/SearchBox/SearchBox.jsx'
 import ContactForm from './components/ContactForm/ContactForm.jsx'
 import dataFromArray from "./contacts.json"
-import * as Yup from "yup";
+
 import { nanoid } from 'nanoid'
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
   <ContactForm onAddContact={onAddContact} />
   <SearchBox value={filterValue}
           onChange={handleFilter}/>
-  <ContactList contacts={filteredContacts} onDeleteProfile={onDeleteContact} />
+  <ContactList filteredContacts={filteredContacts} onDeleteleContact={onDeleteContact} />
 </div>
     </>
   )
