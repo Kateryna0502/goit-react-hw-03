@@ -7,22 +7,22 @@ import css from "./ContactForm.module.css"
 const phoneRegExp = /^[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}$/;
 
 const ContactValidationSchema = Yup.object().shape({
-    profileName: Yup.string()
+    contactName: Yup.string()
         .required("Ім'я профілю є обов'язковим")
         .min(2, "Ім'я профілю має бути мінімум в 2 символи")
         .max(50, "Ім'я профілю має бути меншим за 50 символів"),
-    profileNumber: Yup.string()
+    contactNumber: Yup.string()
         .matches(
             phoneRegExp,
             "Номер телефону має співпадати з форматом 'xxx-xxx-xx-xx'"
         )
         .required("Номер телефону є обов'язковий"),
-    profileEmail: Yup.string()
+    
 })
 
 const INITIAL_VALUES = {
-  profileName: "",
-  profileNumber: "",
+  contactName: "",
+  contactNumber: "",
   
 };
 
@@ -46,7 +46,7 @@ const ContactForm = ({ onAddContact }) => {
       onSubmit={handleSubmit}
       validationSchema={ContactValidationSchema}
     >
-      {({ errors }) => (
+      
         <Form className={css.form}>
         <label className={css.label}>
           <span>Name</span>
@@ -83,7 +83,7 @@ const ContactForm = ({ onAddContact }) => {
           Add Contact
         </button>
       </Form>
-      )}
+      
       
     </Formik>
   );
