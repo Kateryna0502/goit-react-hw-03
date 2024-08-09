@@ -7,7 +7,7 @@ const Contact = ({
   id,
   name,
   number,
-onDeleteProfile}) => {
+onDeleteContact}) => {
   return (
     <div className={css.div}>
           <p className={css.p}>{id}</p>
@@ -17,7 +17,7 @@ onDeleteProfile}) => {
       <p className={css.p}>
         <FaPhoneVolume/>
         {number}</p>
-          <button className={css.btn} type='button' onClick={() => onDeleteProfile(id)}>Delete</button>
+          <button className={css.btn} type='button' onClick={() => onDeleteContact(id)}>Delete</button>
     </div>
   )
 }

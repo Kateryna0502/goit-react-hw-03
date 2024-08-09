@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+
 
 import ContactList from './components/ContactList/ContactList.jsx'
 import SearchBox from './components/SearchBox/SearchBox.jsx'
@@ -41,7 +41,7 @@ function App() {
   <ContactForm onAddContact={onAddContact} />
   <SearchBox value={filterValue}
           onChange={handleFilter}/>
-  <ContactList filteredContacts={filteredContacts} onDeleteleContact={onDeleteContact} />
+  <ContactList contacts={filteredContacts} onDeleteleContact={onDeleteContact} />
 </div>
     </>
   )
