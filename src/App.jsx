@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 import ContactList from './components/ContactList/ContactList.jsx'
@@ -9,7 +9,11 @@ import dataFromArray from "./contacts.json"
 import { nanoid } from 'nanoid'
 
 function App() {
-  const [users, setUsers] = useState(dataFromArray);
+  const [users, setUsers] = useState(() => {
+    const localData = localStorage.getItem("users");
+    return localData ? JSON.parse(localData) : dataFromArray;
+  });
+  
   const [filterValue, setFilterValue] = useState("");
   const onAddContact = (contact) => {
     const finalContact = {
@@ -33,6 +37,9 @@ function App() {
   const filteredContacts = users.filter((contact) =>
     contact.name.toLowerCase().includes(filterValue.toLowerCase())
   );
+  useEffect(() => {
+    localStorage.setItem("users", JSON.stringify(users));
+    }, [users]);
 
   return (
     <>
@@ -40,7 +47,7 @@ function App() {
   <h1>Phonebook</h1>
   <ContactForm onAddContact={onAddContact} />
   <SearchBox value={filterValue}
-          onChange={handleFilter}/>
+          handleFilter={handleFilter}/>
   <ContactList contacts={filteredContacts} onDeleteContact={onDeleteContact} />
 </div>
     </>

@@ -9,7 +9,7 @@ const phoneRegExp = /^[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}$/;
 const ContactValidationSchema = Yup.object().shape({
     contactName: Yup.string()
         .required("Ім'я профілю є обов'язковим")
-        .min(2, "Ім'я профілю має бути мінімум в 2 символи")
+        .min(3, "Ім'я профілю має бути мінімум в 3 символи")
         .max(50, "Ім'я профілю має бути меншим за 50 символів"),
     contactNumber: Yup.string()
         .matches(

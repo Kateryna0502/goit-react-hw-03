@@ -11,14 +11,13 @@ const SearchBox = ({ value, handleFilter }) => {
         placeholder="Enter profile name"
         value={value}
         onChange={(е) => {
-          handleFilter(е)
+        handleFilter(е)
         }}
         
       />
     </div>
   );
 };
-
 
 export default SearchBox;
 
