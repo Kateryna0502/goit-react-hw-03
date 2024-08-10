@@ -1,5 +1,6 @@
 import css from "./SearchBox.module.css";
 
+
 const SearchBox = ({ value, handleFilter }) => {
   return (
     <div className={css.div}>
