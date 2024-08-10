@@ -30,7 +30,7 @@ const ContactForm = ({ onAddContact }) => {
   const handleSubmit = (values, actions) => {
     const contactObject = {
       name: values.contactName,
-      phone: values.contactNumber,
+      number: values.contactNumber,
       
     };
 

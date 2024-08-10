@@ -10,7 +10,7 @@ const Contact = ({
 onDeleteContact}) => {
   return (
     <div className={css.div}>
-          <p className={css.p}>{id}</p>
+          {/* {<p className={css.p}>{id}</p>} */}
       <p className={css.p}>
         <FaUserAlt/>
         {name}</p>

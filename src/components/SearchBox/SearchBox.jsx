@@ -8,10 +8,12 @@ const SearchBox = ({ value, handleFilter }) => {
       <input
         className={css.input}
         type="text"
+        placeholder="Enter profile name"
         value={value}
-        onChange={() => {
-          handleFilter
+        onChange={(е) => {
+          handleFilter(е)
         }}
+        
       />
     </div>
   );
@@ -19,3 +21,4 @@ const SearchBox = ({ value, handleFilter }) => {
 
 
 export default SearchBox;
+
